@@ -24,6 +24,20 @@ function CoverArtboard({ width = 880, height = 1900 }) {
           <strong style={{ color: TOKENS.text1, fontWeight: 500 }}>P2</strong> 檔案資源 · 採購單列表 + 雙簽詳情 · 帳號權限 · 美工 7-stepper · 拍照需求完整表單
         </div>
       </div>
+      
+      <Box style={{ marginBottom: 16, borderLeft: `4px solid ${TOKENS.primary}`, background: TOKENS.surface }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10, borderBottom: `1px solid ${TOKENS.border}`, paddingBottom: 8 }}>
+          <span style={{ fontSize: 16, fontWeight: 600, color: TOKENS.primary }}>📅 0525 v1.0 討論版 · 會議決議重點</span>
+        </div>
+        <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: TOKENS.text1, lineHeight: 1.9 }}>
+          <li>需求單另外找專門時間討論</li>
+          <li>移除採購單</li>
+          <li>下次開始都先以最大權限討論系統，再逐步收斂權限</li>
+          <li>主要專案負責人 Tom，考量行銷單位正在進行整併事宜，此系統暫由 lina 協助建置，Verna 協助撰寫需求規格書</li>
+          <li>一週至少要有兩天各半小時確認需求</li>
+          <li>這份文件作為 KickOff 主要資料，未來依照需求討論會逐步調整之</li>
+        </ul>
+      </Box>
 
       <Box style={{ marginBottom: 16 }}>
         <h3 style={{ margin: '0 0 12px', fontSize: 18, fontWeight: 500 }}>本檔交付清單 · 共 26 個 artboard</h3>
