@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>mkt-tms · v1 P0 設計交付</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; background: #f0eee9; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif; }
+    #root { height: 100vh; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" src="design-canvas.jsx"></script>
+  <script type="text/babel" src="tokens.jsx"></script>
+  <script type="text/babel" src="shell.jsx"></script>
+  <script type="text/babel" src="screens-foundation.jsx"></script>
+  <script type="text/babel" src="screens-dashboard.jsx"></script>
+  <script type="text/babel" src="screens-request-list.jsx"></script>
+  <script type="text/babel" src="screens-request-detail.jsx"></script>
+  <script type="text/babel" src="screens-request-form.jsx"></script>
+  <script type="text/babel" src="screens-project.jsx"></script>
+  <script type="text/babel" src="screens-gantt.jsx"></script>
+  <script type="text/babel" src="screens-announce.jsx"></script>
+  <script type="text/babel" src="screens-files-po-accounts.jsx"></script>
+  <script type="text/babel" src="screens-design-photo.jsx"></script>
+  <script type="text/babel" src="screens-readiness.jsx"></script>
+  <script type="text/babel" src="screens-questions.jsx"></script>
+
+  <script type="text/babel" data-presets="react">
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+
+    function App() {
+      return (
+        <DesignCanvas>
+          {/* ─── Handoff ─────────────────────────────────────────── */}
+          <DCSection id="handoff" title="00 · Handoff" subtitle="交付清單 · 設計系統摘要 · open questions · live demo readiness 啟動清單">
+            <DCArtboard id="cover"  label="00 · Cover & Handoff" width={880}  height={1900}>
+              <CoverArtboard width={880} height={1900} />
+            </DCArtboard>
+            <DCArtboard id="open-q" label="Open Questions" width={880} height={2100}>
+              <OpenQuestionsArtboard width={880} height={2100} />
+            </DCArtboard>
+            <DCArtboard id="readiness" label="Live Demo Readiness · 啟動前確認" width={1080} height={2400}>
+              <ReadinessArtboard width={1080} height={2400} />
+            </DCArtboard>
+          </DCSection>
+
+          {/* ─── App Shell + Login ───────────────────────────────── */}
+          <DCSection id="login" title="01 · App Shell · Login" subtitle="登入頁三狀態 + 元件 reference (§7, §25-28)">
+            <DCArtboard id="login-default" label="Login · default" width={1440} height={900}>
+              <LoginPage state="default" width={1440} height={900} />
+            </DCArtboard>
+            <DCArtboard id="login-loading" label="Login · loading" width={1440} height={900}>
+              <LoginPage state="loading" width={1440} height={900} />
+            </DCArtboard>
+            <DCArtboard id="login-error" label="Login · error" width={1440} height={900}>
+              <LoginPage state="error" width={1440} height={900} />
+            </DCArtboard>
+            <DCArtboard id="components" label="99 · Components & Tokens" width={1200} height={1700}>
+              <ComponentsRef width={1200} height={1700} />
+            </DCArtboard>
+          </DCSection>
+
+          {/* ─── Dashboard ───────────────────────────────────────── */}
+          <DCSection id="dashboard" title="03 · Dashboard" subtitle="管理者視角 · 統計 / 待我處理 / 工作負載 / 最近異動 (§9)">
+            <DCArtboard id="dashboard" label="Dashboard · admin" width={1440} height={1280}>
+              <DashboardScreen />
+            </DCArtboard>
+          </DCSection>
+
+          {/* ─── Request List ────────────────────────────────────── */}
+          <DCSection id="request-list" title="04 · Request List" subtitle="四種狀態:default / empty / loading / readonly (§10, §26, §30)">
+            <DCArtboard id="req-list-default"  label="List · default"  width={1440} height={900}>
+              <RequestListScreen variant="default" />
+            </DCArtboard>
+            <DCArtboard id="req-list-empty"    label="List · empty"    width={1440} height={900}>
+              <RequestListScreen variant="empty" />
+            </DCArtboard>
+            <DCArtboard id="req-list-loading"  label="List · loading"  width={1440} height={900}>
+              <RequestListScreen variant="loading" />
+            </DCArtboard>
+            <DCArtboard id="req-list-readonly" label="List · readonly (viewer)" width={1440} height={900}>
+              <RequestListScreen variant="readonly" />
+            </DCArtboard>
+            <DCArtboard id="req-list-editor" label="List · editor (ryan · 行銷處)" width={1440} height={900}>
+              <RequestListScreen variant="editor" />
+            </DCArtboard>
+          </DCSection>
+
+          {/* ─── Request Detail ──────────────────────────────────── */}
+          <DCSection id="request-detail" title="05 · Request Detail" subtitle="REQ-20260520-01 · 待確認狀態 · 含 stepper / tabs / thread (§10, §11, §16)">
+            <DCArtboard id="req-detail" label="Detail · 待確認 + thread" width={1440} height={1700}>
+              <RequestDetailScreen />
+            </DCArtboard>
+          </DCSection>
+
+          {/* ─── Request Form ────────────────────────────────────── */}
+          <DCSection id="request-form" title="06 · Request Create / Edit" subtitle="兩欄式表單 · sticky 提交列 · 驗證錯誤展示 (§10, §27)">
+            <DCArtboard id="req-form" label="Create · with validation error" width={1440} height={1600}>
+              <RequestFormScreen />
+            </DCArtboard>
+          </DCSection>
+
+          {/* ═══ P1 ══════════════════════════════════════════════ */}
+
+          {/* ─── Project Detail ──────────────────────────────────── */}
+          <DCSection id="project" title="07 · Project Detail" subtitle="專案層級高於需求單,可關聯多 REQ + 任務 + 里程碑 (§13, §14)">
+            <DCArtboard id="prj-detail" label="Project · 喜來登母親節活動 2026" width={1440} height={1600}>
+              <ProjectDetailScreen />
+            </DCArtboard>
+          </DCSection>
+
+          {/* ─── Gantt (3 views) ─────────────────────────────────── */}
+          <DCSection id="gantt" title="08-09 · 工作負載甘特圖" subtitle="月 / 季 / 年三區間 · PM vs 協作 · 里程碑 · 跨人相依 (§15, §29)">
+            <DCArtboard id="gantt-month" label="Gantt · 月報 (P0 priority)" width={1440} height={780}>
+              <GanttScreen variant="month" />
+            </DCArtboard>
+            <DCArtboard id="gantt-quarter" label="Gantt · 季報 (個人→專案)" width={1440} height={900}>
+              <GanttScreen variant="quarter" />
+            </DCArtboard>
+            <DCArtboard id="gantt-year" label="Gantt · 年報 (高密度)" width={1440} height={1100}>
+              <GanttScreen variant="year" />
+            </DCArtboard>
+          </DCSection>
+
+          {/* ─── Announcements ───────────────────────────────────── */}
+          <DCSection id="announce" title="10 · 公告" subtitle="列表 + 詳情 · 置頂 / 即將結束 / 已結束 (§16)">
+            <DCArtboard id="ann-list" label="Announcement · list" width={1440} height={900}>
+              <AnnouncementListScreen />
+            </DCArtboard>
+            <DCArtboard id="ann-detail" label="Announcement · detail" width={1440} height={1280}>
+              <AnnouncementDetailScreen />
+            </DCArtboard>
+          </DCSection>
+
+          {/* ─── Meetings + Timeline ─────────────────────────────── */}
+          <DCSection id="meetings" title="11 · 會議 + 審閱/溝通紀錄 timeline" subtitle="列表 / 詳情 / 議程 / 紀錄 / 完整 timeline (§16)">
+            <DCArtboard id="mtg-list" label="Meeting · list" width={1440} height={900}>
+              <MeetingListScreen />
+            </DCArtboard>
+            <DCArtboard id="mtg-detail" label="Meeting · detail + comm timeline" width={1440} height={1700}>
+              <MeetingDetailScreen />
+            </DCArtboard>
+          </DCSection>
+
+          {/* ═══ P2 ══════════════════════════════════════════════ */}
+
+          {/* ─── Files & Resources ───────────────────────────────── */}
+          <DCSection id="files" title="12 · 檔案與資源" subtitle="附件庫 + 資源連結 + 上傳 / 篩選 (§17)">
+            <DCArtboard id="files-resources" label="Files · 附件 tab + 資源連結預覽" width={1440} height={1500}>
+              <FilesResourcesScreen />
+            </DCArtboard>
+          </DCSection>
+
+          {/* ─── Purchase Order ──────────────────────────────────── */}
+          <DCSection id="po" title="13 · 採購單" subtitle="列表 + 待核准詳情(super_admin 視角)· 雙簽流程 (§18)">
+            <DCArtboard id="po-list" label="PO · list" width={1440} height={900}>
+              <POListScreen />
+            </DCArtboard>
+            <DCArtboard id="po-detail" label="PO · 待核准 detail (super_admin)" width={1440} height={1380}>
+              <PODetailScreen />
+            </DCArtboard>
+          </DCSection>
+
+          {/* ─── Accounts & Permissions ──────────────────────────── */}
+          <DCSection id="accounts" title="14 · 帳號與權限" subtitle="14 人(5 確認 + 9 候補) · 權限矩陣 §5 對照 (§19)">
+            <DCArtboard id="accounts" label="Accounts · super_admin 視角" width={1440} height={1280}>
+              <AccountsScreen />
+            </DCArtboard>
+          </DCSection>
+
+          {/* ─── Design 7-stepper ────────────────────────────────── */}
+          <DCSection id="design-flow" title="15 · 美工 / 設計流程 stepper" subtitle="四種狀態:標準 / 退回循環 / 完成結案 / 初審不通過 (§11)">
+            <DCArtboard id="design-stepper" label="Design 7-stepper · 4 states" width={1440} height={1500}>
+              <DesignFlowScreen />
+            </DCArtboard>
+          </DCSection>
+
+          {/* ─── Photo Request ───────────────────────────────────── */}
+          <DCSection id="photo" title="16 · 拍照需求完整表單" subtitle="§12 八欄位全到位 · 修圖等級 + 場景清單 + 外包供應商">
+            <DCArtboard id="photo-form" label="Photo · §12 完整表單" width={1440} height={1700}>
+              <PhotoRequestFormScreen />
+            </DCArtboard>
+          </DCSection>
+
+        </DesignCanvas>
+      );
+    }
+
+    root.render(<App />);
+  </script>
+</body>
+</html>
