@@ -5,12 +5,12 @@
 // ─────────────────────────────────────────────────────────────────
 function CoverArtboard({ width = 880, height = 1900 }) {
   const Box = ({ children, style }) => (
-    <div style={{ border: `1px solid ${TOKENS.border}`, borderRadius: 6, background: TOKENS.surface, padding: 20, ...style }}>{children}</div>
+    <div style={{ border: `1px solid ${TOKENS.border}`, borderRadius: 6, background: TOKENS.surface, padding: 12, ...style }}>{children}</div>
   );
 
   return (
     <div className="tms" style={{ width, minHeight: height, background: TOKENS.bg, padding: 40, overflow: 'visible' }}>
-      <div style={{ marginBottom: 16 }}>
+      <div style={{ marginBottom: 10 }}>
         <div className="tms-mono" style={{ fontSize: 11, color: TOKENS.text3, letterSpacing: 1 }}>
           HANDOFF · 2026-05-25 · v3 含 P0 + P1 + P2
         </div>
@@ -19,7 +19,7 @@ function CoverArtboard({ width = 880, height = 1900 }) {
         </h1>
       </div>
 
-      <Box style={{ marginBottom: 16, borderLeft: `4px solid ${TOKENS.primary}`, background: TOKENS.surface }}>
+      <Box style={{ marginBottom: 10, borderLeft: `4px solid ${TOKENS.primary}`, background: TOKENS.surface }}>
         <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: TOKENS.text1, lineHeight: 1.5 }}>
           <li style={{ fontWeight: 600 }}>
             重要文件:&nbsp;
@@ -41,7 +41,7 @@ function CoverArtboard({ width = 880, height = 1900 }) {
         </ul>
       </Box>
 
-      <Box style={{ marginBottom: 16 }}>
+      <Box style={{ marginBottom: 10 }}>
         <h3 style={{ margin: '0 0 8px', fontSize: 16, fontWeight: 500 }}>本檔涵蓋範圍</h3>
         <div style={{ fontSize: 14, color: TOKENS.text2, lineHeight: 1.7 }}>
           依 DESIGN-REQUIREMENTS §23,三波交付一次到位:<br />
@@ -51,7 +51,7 @@ function CoverArtboard({ width = 880, height = 1900 }) {
         </div>
       </Box>
 
-      <Box style={{ marginBottom: 16 }}>
+      <Box style={{ marginBottom: 10 }}>
         <h3 style={{ margin: '0 0 12px', fontSize: 18, fontWeight: 500 }}>本檔交付清單 · 共 26 個 artboard</h3>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 12 }}>
           <thead>
@@ -116,7 +116,7 @@ function CoverArtboard({ width = 880, height = 1900 }) {
         </table>
       </Box>
 
-      <Box style={{ marginBottom: 16 }}>
+      <Box style={{ marginBottom: 10 }}>
         <h3 style={{ margin: '0 0 12px', fontSize: 18, fontWeight: 500 }}>設計系統摘要</h3>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, fontSize: 13, color: TOKENS.text2, lineHeight: 1.8 }}>
           <div>
