@@ -14,25 +14,24 @@ function CoverArtboard({ width = 880, height = 1900 }) {
         <div className="tms-mono" style={{ fontSize: 11, color: TOKENS.text3, letterSpacing: 1 }}>
           HANDOFF · 2026-05-25 · v3 含 P0 + P1 + P2
         </div>
-        <h1 style={{ margin: '8px 0 6px', fontSize: 32, fontWeight: 500, letterSpacing: -0.5 }}>
-          mkt-tms v1 · 設計交付
+        <h1 style={{ margin: '8px 0 6px', fontSize: 32, fontWeight: 500, letterSpacing: -0.5, color: TOKENS.primary }}>
+          KickOff · 0525 v1.0 討論版 · 會議決議重點
         </h1>
       </div>
 
       <Box style={{ marginBottom: 16, borderLeft: `4px solid ${TOKENS.primary}`, background: TOKENS.surface }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10, borderBottom: `1px solid ${TOKENS.border}`, paddingBottom: 8, gap: 12, flexWrap: 'wrap' }}>
-          <span style={{ fontSize: 16, fontWeight: 600, color: TOKENS.primary }}>KickOff · 0525 v1.0 討論版 · 會議決議重點</span>
-          <a
-            href="https://docs.google.com/document/d/19yCX-3R3ofe7zXKAoyWPNUYnCnXIrIiCu8YL4D4NNyI/edit?tab=t.3som5coizaw5"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="tms-mono"
-            style={{ fontSize: 11, color: TOKENS.primary, textDecoration: 'underline' }}
-          >
-            開啟討論文件 ↗
-          </a>
-        </div>
         <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: TOKENS.text1, lineHeight: 1.9 }}>
+          <li style={{ fontWeight: 600 }}>
+            重要文件:&nbsp;
+            <a
+              href="https://docs.google.com/document/d/19yCX-3R3ofe7zXKAoyWPNUYnCnXIrIiCu8YL4D4NNyI/edit?tab=t.3som5coizaw5"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: TOKENS.primary, textDecoration: 'underline' }}
+            >
+              【數位專案】行銷處內部管理平台開發 ↗
+            </a>
+          </li>
           <li>需求單另外找專門時間討論</li>
           <li>移除採購單</li>
           <li>下次開始都先以最大權限討論系統，再逐步收斂權限</li>
@@ -40,18 +39,6 @@ function CoverArtboard({ width = 880, height = 1900 }) {
           <li>一週至少要有兩天各半小時確認需求</li>
           <li>這份文件作為 KickOff 主要資料，未來依照需求討論會逐步調整之</li>
         </ul>
-        <div style={{ marginTop: 12, paddingTop: 10, borderTop: `1px solid ${TOKENS.border}`, fontSize: 12, color: TOKENS.text3, lineHeight: 1.7 }}>
-          重要討論文件:&nbsp;
-          <a
-            href="https://docs.google.com/document/d/19yCX-3R3ofe7zXKAoyWPNUYnCnXIrIiCu8YL4D4NNyI/edit?tab=t.3som5coizaw5"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="tms-mono"
-            style={{ color: TOKENS.primary, textDecoration: 'underline', wordBreak: 'break-all' }}
-          >
-            docs.google.com/document/d/19yCX-3R3ofe7zXKAoyWPNUYnCnXIrIiCu8YL4D4NNyI
-          </a>
-        </div>
       </Box>
 
       <Box style={{ marginBottom: 16 }}>
