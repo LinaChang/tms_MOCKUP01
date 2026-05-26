@@ -15,19 +15,22 @@ function CoverArtboard({ width = 880, height = 1900 }) {
           HANDOFF · 2026-05-25 · v3 含 P0 + P1 + P2
         </div>
         <h1 style={{ margin: '8px 0 6px', fontSize: 32, fontWeight: 500, letterSpacing: -0.5 }}>
-          mkt-tms v1 · 完整設計交付
+          mkt-tms v1 · 設計交付
         </h1>
-        <div style={{ fontSize: 14, color: TOKENS.text2, lineHeight: 1.7 }}>
-          依 DESIGN-REQUIREMENTS §23,三波交付一次到位。本檔涵蓋:<br />
-          <strong style={{ color: TOKENS.text1, fontWeight: 500 }}>P0</strong> App shell · 登入 · 共用元件 · 儀表板 · 需求單列表 (4 狀態) · 詳情 · 新增<br />
-          <strong style={{ color: TOKENS.text1, fontWeight: 500 }}>P1</strong> 專案詳情 · 工作負載甘特圖 月/季/年 · 公告列表 + 詳情 · 會議列表 + 詳情 + timeline<br />
-          <strong style={{ color: TOKENS.text1, fontWeight: 500 }}>P2</strong> 檔案資源 · 採購單列表 + 雙簽詳情 · 帳號權限 · 美工 7-stepper · 拍照需求完整表單
-        </div>
       </div>
-      
+
       <Box style={{ marginBottom: 16, borderLeft: `4px solid ${TOKENS.primary}`, background: TOKENS.surface }}>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10, borderBottom: `1px solid ${TOKENS.border}`, paddingBottom: 8 }}>
-          <span style={{ fontSize: 16, fontWeight: 600, color: TOKENS.primary }}>0525 v1.0 討論版 · 會議決議重點</span>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10, borderBottom: `1px solid ${TOKENS.border}`, paddingBottom: 8, gap: 12, flexWrap: 'wrap' }}>
+          <span style={{ fontSize: 16, fontWeight: 600, color: TOKENS.primary }}>KickOff · 0525 v1.0 討論版 · 會議決議重點</span>
+          <a
+            href="https://docs.google.com/document/d/19yCX-3R3ofe7zXKAoyWPNUYnCnXIrIiCu8YL4D4NNyI/edit?tab=t.3som5coizaw5"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="tms-mono"
+            style={{ fontSize: 11, color: TOKENS.primary, textDecoration: 'underline' }}
+          >
+            開啟討論文件 ↗
+          </a>
         </div>
         <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: TOKENS.text1, lineHeight: 1.9 }}>
           <li>需求單另外找專門時間討論</li>
@@ -37,6 +40,28 @@ function CoverArtboard({ width = 880, height = 1900 }) {
           <li>一週至少要有兩天各半小時確認需求</li>
           <li>這份文件作為 KickOff 主要資料，未來依照需求討論會逐步調整之</li>
         </ul>
+        <div style={{ marginTop: 12, paddingTop: 10, borderTop: `1px solid ${TOKENS.border}`, fontSize: 12, color: TOKENS.text3, lineHeight: 1.7 }}>
+          重要討論文件:&nbsp;
+          <a
+            href="https://docs.google.com/document/d/19yCX-3R3ofe7zXKAoyWPNUYnCnXIrIiCu8YL4D4NNyI/edit?tab=t.3som5coizaw5"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="tms-mono"
+            style={{ color: TOKENS.primary, textDecoration: 'underline', wordBreak: 'break-all' }}
+          >
+            docs.google.com/document/d/19yCX-3R3ofe7zXKAoyWPNUYnCnXIrIiCu8YL4D4NNyI
+          </a>
+        </div>
+      </Box>
+
+      <Box style={{ marginBottom: 16 }}>
+        <h3 style={{ margin: '0 0 8px', fontSize: 16, fontWeight: 500 }}>本檔涵蓋範圍</h3>
+        <div style={{ fontSize: 14, color: TOKENS.text2, lineHeight: 1.7 }}>
+          依 DESIGN-REQUIREMENTS §23,三波交付一次到位:<br />
+          <strong style={{ color: TOKENS.text1, fontWeight: 500 }}>P0</strong> App shell · 登入 · 共用元件 · 儀表板 · 需求單列表 (4 狀態) · 詳情 · 新增<br />
+          <strong style={{ color: TOKENS.text1, fontWeight: 500 }}>P1</strong> 專案詳情 · 工作負載甘特圖 月/季/年 · 公告列表 + 詳情 · 會議列表 + 詳情 + timeline<br />
+          <strong style={{ color: TOKENS.text1, fontWeight: 500 }}>P2</strong> 檔案資源 · 採購單列表 + 雙簽詳情 · 帳號權限 · 美工 7-stepper · 拍照需求完整表單
+        </div>
       </Box>
 
       <Box style={{ marginBottom: 16 }}>

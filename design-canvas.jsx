@@ -478,7 +478,7 @@ function DCViewport({ children, minScale = 0.1, maxScale = 8, style = {} }) {
           willChange: 'transform',
           width: 'max-content', minWidth: '100%',
           minHeight: '100%',
-          padding: '60px 0 80px',
+          padding: '40px 0 40px',
         }}
       >
         <div style={{ position: 'absolute', inset: -6000, backgroundImage: gridSvg, backgroundSize: '120px 120px', pointerEvents: 'none', zIndex: -1 }} />
@@ -520,9 +520,9 @@ function DCSection({ id, title, subtitle, children, gap = 48 }) {
   // the title sits tight against its own row at every zoom.
   return (
     <div data-dc-section={sid}
-      style={{ marginBottom: 'calc(80px * var(--dc-inv-zoom, 1))', position: 'relative' }}>
+      style={{ marginBottom: 'calc(48px * var(--dc-inv-zoom, 1))', position: 'relative' }}>
       <div style={{ padding: '0 60px' }}>
-        <div className="dc-sectionhead" style={{ paddingBottom: 36 }}>
+        <div className="dc-sectionhead" style={{ paddingBottom: 20 }}>
           <DCEditable tag="div" value={sec.title ?? title}
             onChange={(v) => ctx && sid && ctx.patchSection(sid, { title: v })}
             style={{ fontSize: 28, fontWeight: 600, color: DC.title, letterSpacing: -0.4, marginBottom: 6, display: 'inline-block' }} />
