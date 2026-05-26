@@ -35,6 +35,7 @@
   <script type="text/babel" src="screens-design-photo.jsx"></script>
   <script type="text/babel" src="screens-readiness.jsx"></script>
   <script type="text/babel" src="screens-questions.jsx"></script>
+  <script type="text/babel" src="screens-permissions.jsx"></script>
 
   <script type="text/babel" data-presets="react">
     const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -176,6 +177,9 @@
           <DCSection id="accounts" title="14 · 帳號與權限" subtitle="14 人(5 確認 + 9 候補) · 權限矩陣 §5 對照 (§19)">
             <DCArtboard id="accounts" label="Accounts · super_admin 視角" width={1440} height={1280}>
               <AccountsScreen />
+            </DCArtboard>
+            <DCArtboard id="permissions-matrix" label="Permissions · 功能權限對照表" width={1440} height={1200}>
+              <PermissionMatrixScreen />
             </DCArtboard>
           </DCSection>
 

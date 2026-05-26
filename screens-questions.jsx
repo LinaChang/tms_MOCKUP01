@@ -27,7 +27,7 @@ function CoverArtboard({ width = 880, height = 1900 }) {
       
       <Box style={{ marginBottom: 16, borderLeft: `4px solid ${TOKENS.primary}`, background: TOKENS.surface }}>
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 10, borderBottom: `1px solid ${TOKENS.border}`, paddingBottom: 8 }}>
-          <span style={{ fontSize: 16, fontWeight: 600, color: TOKENS.primary }}>📅 0525 v1.0 討論版 · 會議決議重點</span>
+          <span style={{ fontSize: 16, fontWeight: 600, color: TOKENS.primary }}>0525 v1.0 討論版 · 會議決議重點</span>
         </div>
         <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: TOKENS.text1, lineHeight: 1.9 }}>
           <li>需求單另外找專門時間討論</li>
