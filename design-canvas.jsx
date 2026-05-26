@@ -540,11 +540,10 @@ function DCNavHint() {
         maxWidth: '92vw',
       }}
     >
-      <span style={{ fontSize: 16 }}>👆</span>
       <span>
         <strong style={{ fontWeight: 600 }}>畫布操作:</strong>
-        &nbsp;兩指/拖曳背景 <span style={{ opacity: .6 }}>平移</span>
-        &nbsp;·&nbsp;捏合/滾輪 <span style={{ opacity: .6 }}>縮放</span>
+        &nbsp;拖曳 <span style={{ opacity: .6 }}>平移</span>
+        &nbsp;·&nbsp;捏合 / 滾輪 <span style={{ opacity: .6 }}>縮放</span>
         &nbsp;·&nbsp;點擊畫板 <span style={{ opacity: .6 }}>全螢幕</span>
       </span>
       <button
