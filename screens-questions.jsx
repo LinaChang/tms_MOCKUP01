@@ -20,7 +20,7 @@ function CoverArtboard({ width = 880, height = 1900 }) {
       </div>
 
       <Box style={{ marginBottom: 16, borderLeft: `4px solid ${TOKENS.primary}`, background: TOKENS.surface }}>
-        <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: TOKENS.text1, lineHeight: 1.9 }}>
+        <ul style={{ margin: 0, paddingLeft: 20, fontSize: 13, color: TOKENS.text1, lineHeight: 1.5 }}>
           <li style={{ fontWeight: 600 }}>
             重要文件:&nbsp;
             <a
