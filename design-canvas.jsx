@@ -484,6 +484,80 @@ function DCViewport({ children, minScale = 0.1, maxScale = 8, style = {} }) {
         <div style={{ position: 'absolute', inset: -6000, backgroundImage: gridSvg, backgroundSize: '120px 120px', pointerEvents: 'none', zIndex: -1 }} />
         {children}
       </div>
+      <DCNavHint />
+    </div>
+  );
+}
+
+// ─────────────────────────────────────────────────────────────
+// DCNavHint — corner banner explaining pan/zoom. Auto-dismisses
+// after 8s on first load; user can click × to hide permanently.
+// A small "?" button on the bottom-right can re-open it.
+// ─────────────────────────────────────────────────────────────
+function DCNavHint() {
+  const KEY = 'dc-navhint-dismissed';
+  const [open, setOpen] = React.useState(() => {
+    try { return localStorage.getItem(KEY) !== '1'; } catch { return true; }
+  });
+
+  React.useEffect(() => {
+    if (!open) return;
+    const t = setTimeout(() => setOpen(false), 8000);
+    return () => clearTimeout(t);
+  }, [open]);
+
+  const dismiss = () => {
+    setOpen(false);
+    try { localStorage.setItem(KEY, '1'); } catch {}
+  };
+
+  if (!open) {
+    return (
+      <button
+        onClick={() => setOpen(true)}
+        title="顯示操作提示"
+        style={{
+          position: 'fixed', bottom: 16, right: 16, zIndex: 50,
+          width: 32, height: 32, borderRadius: 16, border: 'none',
+          background: 'rgba(40,30,20,.55)', color: '#fff',
+          fontFamily: DC.font, fontSize: 14, fontWeight: 600,
+          cursor: 'pointer', backdropFilter: 'blur(8px)',
+          boxShadow: '0 2px 8px rgba(0,0,0,.18)',
+        }}
+      >?</button>
+    );
+  }
+
+  return (
+    <div
+      style={{
+        position: 'fixed', bottom: 16, left: '50%', transform: 'translateX(-50%)',
+        zIndex: 50, background: 'rgba(40,30,20,.78)', color: '#fff',
+        backdropFilter: 'blur(10px)', borderRadius: 10,
+        padding: '10px 14px 10px 16px', display: 'flex', alignItems: 'center', gap: 14,
+        fontFamily: DC.font, fontSize: 13, lineHeight: 1.4,
+        boxShadow: '0 4px 20px rgba(0,0,0,.25)',
+        maxWidth: '92vw',
+      }}
+    >
+      <span style={{ fontSize: 16 }}>👆</span>
+      <span>
+        <strong style={{ fontWeight: 600 }}>畫布操作:</strong>
+        &nbsp;兩指/拖曳背景 <span style={{ opacity: .6 }}>平移</span>
+        &nbsp;·&nbsp;捏合/滾輪 <span style={{ opacity: .6 }}>縮放</span>
+        &nbsp;·&nbsp;點擊畫板 <span style={{ opacity: .6 }}>全螢幕</span>
+      </span>
+      <button
+        onClick={dismiss}
+        title="不再顯示"
+        style={{
+          border: 'none', background: 'rgba(255,255,255,.12)',
+          color: '#fff', width: 22, height: 22, borderRadius: 11,
+          cursor: 'pointer', fontSize: 14, lineHeight: 1, padding: 0,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          flexShrink: 0,
+        }}
+      >×</button>
     </div>
   );
 }
